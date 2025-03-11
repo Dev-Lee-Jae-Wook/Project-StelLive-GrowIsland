@@ -31,7 +31,7 @@ namespace StelLiveGrowIsland
 		public override IEnumerator Action()
 		{
 			Debug.Log("리코 스폰함");
-			yield return null;
+			yield return growObjectManager.GetGrowObject(GrowObjectType.Adventure).GrowCharacter(characterType);
 		}
 		#endregion
 

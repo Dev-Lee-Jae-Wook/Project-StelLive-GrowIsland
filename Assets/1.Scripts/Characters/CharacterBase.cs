@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 namespace StelLiveGrowIsland
@@ -7,10 +8,11 @@ namespace StelLiveGrowIsland
 	public abstract class CharacterBase : MonoBehaviour
 	{
 		#region Inspector Field
-		[SerializeField] private Transform _spawnPoint;
+		
 		#endregion
 
 		#region Fild
+		protected GrowObjectManager growObjectManager;
 		#endregion
 
 		#region Properties
@@ -24,14 +26,14 @@ namespace StelLiveGrowIsland
 		#endregion
 
 		#region Public Methods
-		public void Initilize()
+		public void Initilize(GrowObjectManager manager)
 		{
+			growObjectManager = manager;
 			gameObject.SetActive(false);
 		}
 		public void Spawn()
 		{
 			Debug.Log($"{characterType}이 소환되었습니다.");
-			transform.position = _spawnPoint.position;
 			gameObject.SetActive(true);
 		}
 		#endregion

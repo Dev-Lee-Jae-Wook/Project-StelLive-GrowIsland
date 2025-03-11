@@ -11,6 +11,7 @@ namespace StelLiveGrowIsland
 	{
 		#region Inspector Field
 		[SerializeField] private GameManager _gameManager;
+		[SerializeField] private GrowObjectManager _growObjectManager;
 		#endregion
 
 		#region Fild
@@ -29,7 +30,7 @@ namespace StelLiveGrowIsland
 			CharacterBase[] characters = GetComponentsInChildren<CharacterBase>();
 			foreach (var character in characters)
 			{
-				character.Initilize();
+				character.Initilize(_growObjectManager);
 				_characterTable.Add(character.characterType, character);
 			}
 		}

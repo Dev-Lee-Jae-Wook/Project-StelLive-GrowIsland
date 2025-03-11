@@ -31,7 +31,7 @@ namespace StelLiveGrowIsland
 		public override IEnumerator Action()
 		{
 			Debug.Log("¸° ½ºÆù");
-			yield return null;
+			yield return growObjectManager.GetGrowObject(GrowObjectType.Farming).GrowCharacter(characterType);
 		}
 		#endregion
 

@@ -31,7 +31,7 @@ namespace StelLiveGrowIsland
 		public override IEnumerator Action()
 		{
 			Debug.Log("시부키 스폰함");
-			yield return null;
+			yield return growObjectManager.GetGrowObject(GrowObjectType.Mining).GrowCharacter(characterType);
 		}
 		#endregion
 
