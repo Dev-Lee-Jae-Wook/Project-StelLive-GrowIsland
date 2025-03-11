@@ -5,28 +5,15 @@ using UnityEngine.UI;
 
 namespace StelLiveGrowIsland
 {
-	public enum StelLiveCharacterType
-    {
-        None,
-		GangZi,
-		Yuni,
-		Hina,
-		Mashiro,
-		Lize,
-		Tabi,
-		Shibuki,
-		Rin,
-		Nana,
-		Riko
-	}
 
 
-    public class ChoiceButtonManager : SerializedMonoBehaviour
+	public class ChoiceButtonManager : SerializedMonoBehaviour
 	{
 		#region Inspector Field
 		public Dictionary<StelLiveCharacterType, Sprite> _iconTable = new();
 		[SerializeField] private GraphicRaycaster _graphicRaycaster;
 		[SerializeField] private GameManager _gameManger;
+		[SerializeField] private CharacterManager _characterManager;
 		#endregion
 
 		#region Fild
@@ -74,9 +61,9 @@ namespace StelLiveGrowIsland
 		}
 		private void Choiced(StelLiveCharacterType type)
 		{
-			Debug.Log($"{type} Choice");
 			InteractionOff();
-			_gameManger.TrunEnd();
+			_characterManager.SpawnCharacter(type);
+			//_gameManger.TrunEnd();
 		}
 
 		/// <summary>
